@@ -1,5 +1,6 @@
 import { Box, Card } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
+import { useState, useEffect } from "react";
 
 const theme = createTheme({
   palette: {
@@ -11,14 +12,24 @@ const theme = createTheme({
     },
   },
 });
+const colors = [
+  theme.palette.cards.yellow,
+  theme.palette.cards.green,
+  theme.palette.cards.blue,
+  theme.palette.cards.purple,
+];
 
 function ConnectionCard() {
-  const colors = [
-    theme.palette.cards.yellow,
-    theme.palette.cards.green,
-    theme.palette.cards.blue,
-    theme.palette.cards.purple,
-  ];
+  const [color, setColor] = useState(colors[Math.floor(Math.random() * 4)]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setColor(colors[Math.floor(Math.random() * 4)]);
+    }, 750);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Box display="flex" justifyContent="center" alignItems="center">
       <Card
@@ -26,7 +37,7 @@ function ConnectionCard() {
           width: 1,
           height: 150,
           m: 1,
-          bgcolor: colors[Math.floor(Math.random() * 4)],
+          bgcolor: color,
         }}
       ></Card>
     </Box>
