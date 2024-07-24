@@ -1,4 +1,4 @@
-import { Box, Card } from "@mui/material";
+import { Box, Card, TextField } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 
@@ -9,6 +9,7 @@ const theme = createTheme({
       green: "#a0c35a",
       blue: "#b0c4ef",
       purple: "#ba81c5",
+      gray: "#efefe6",
     },
   },
 });
@@ -19,7 +20,7 @@ const colors = [
   theme.palette.cards.purple,
 ];
 
-function ConnectionCard() {
+function ConnectionCard(props) {
   const [color, setColor] = useState(colors[Math.floor(Math.random() * 4)]);
 
   useEffect(() => {
@@ -37,9 +38,16 @@ function ConnectionCard() {
           width: 1,
           height: 150,
           m: 1,
-          bgcolor: color,
+          bgcolor: props.create === true ? theme.palette.cards.gray : color,
+          opacity: props.create === true ? 0.7 : 1,
         }}
-      ></Card>
+      >
+        {props.create ? (
+          <TextField variant="standard" multiline margin="normal" />
+        ) : (
+          <></>
+        )}
+      </Card>
     </Box>
   );
 }

@@ -1,8 +1,10 @@
 import { Box, Grid, Button, Typography } from "@mui/material";
 import ConnectionCard from "./ConnectionCard";
+import { useState } from "react";
 import Header from "./Header";
 
 function Home() {
+  const [creating, setCreating] = useState(false);
   return (
     <div className="App">
       <Header />
@@ -22,56 +24,76 @@ function Home() {
           columnSpacing={0}
         >
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard />
+            <ConnectionCard create={creating} />
           </Grid>
         </Grid>
       </Box>
-      <Button variant="contained"> start </Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          setCreating(!creating);
+        }}
+      >
+        {creating ? "finish" : "create"}
+      </Button>
+
+      {creating ? (
+        <Button
+          variant="contained"
+          onClick={() => {
+            setCreating(!creating);
+          }}
+        >
+          {"cancel"}
+        </Button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
