@@ -4,7 +4,7 @@ import { useState } from "react";
 import Header from "./Header";
 
 function Home() {
-  const [creating, setCreating] = useState(false);
+  const [isCreating, setIsCreating] = useState(false);
   return (
     <div className="App">
       <Header />
@@ -13,8 +13,8 @@ function Home() {
       <Typography gutterBottom variant="subtitle1" component="div">
         Create your own connections game!
       </Typography>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
       <Box display="flex" justifyContent="center" alignItems="center">
         <Grid
           container
@@ -23,70 +23,78 @@ function Home() {
           direction="row"
           columnSpacing={0}
         >
+          {
+            isCreating ? 
+            <>
+              <Grid item xs={3}>Theme 1</Grid>
+              <Grid item xs={3}>Theme 2</Grid>
+              <Grid item xs={3}>Theme 3</Grid>
+              <Grid item xs={3}>Theme 4</Grid>
+              </> : <></>}
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
           <Grid item xs={3}>
-            <ConnectionCard create={creating} />
+            <ConnectionCard create={isCreating} />
           </Grid>
         </Grid>
       </Box>
       <Button
         variant="contained"
         onClick={() => {
-          setCreating(!creating);
+          setIsCreating(!isCreating);
         }}
       >
-        {creating ? "finish" : "create"}
+        {isCreating ? "finish" : "create"}
       </Button>
 
-      {creating ? (
+      {isCreating ? (
         <Button
           variant="contained"
           onClick={() => {
-            setCreating(!creating);
+            setIsCreating(!isCreating);
           }}
         >
           {"cancel"}
