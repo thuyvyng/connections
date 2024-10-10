@@ -25,7 +25,12 @@ function ConnectionCard(props) {
         }}
       >
         {props.create ? (
-          <TextField variant="standard" multiline margin="normal" />
+          <TextField
+            variant="standard"
+            multiline
+            margin="normal"
+            onChange={props.onChange}
+          />
         ) : (
           <></>
         )}

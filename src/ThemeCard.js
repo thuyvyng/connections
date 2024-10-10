@@ -16,7 +16,7 @@ function ThemeCard(props) {
           variant="standard"
           multiline
           margin="normal"
-          sx={{ paddingBottom: 8 }}
+          onChange={props.onChange}
         />
       </Card>
     </Box>
