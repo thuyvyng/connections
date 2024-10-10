@@ -1,8 +1,26 @@
 import { Box, Card, TextField } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import { useState, useEffect } from "react";
-import { theme, colors } from "./ThemeColors";
 
-function ThemeCard() {}
+function ThemeCard(props) {
+  return (
+    <Box display="flex" justifyContent="center" alignItems="center">
+      <Card
+        sx={{
+          width: 1,
+          height: 50,
+          m: 1,
+          bgcolor: props.color,
+          opacity: 1,
+        }}
+      >
+        <TextField
+          variant="standard"
+          multiline
+          margin="normal"
+          sx={{ paddingBottom: 8 }}
+        />
+      </Card>
+    </Box>
+  );
+}
 
 export default ThemeCard;

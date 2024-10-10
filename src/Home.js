@@ -2,6 +2,8 @@ import { Box, Grid, Button, Typography } from "@mui/material";
 import ConnectionCard from "./ConnectionCard";
 import { useState } from "react";
 import Header from "./Header";
+import ThemeCard from "./ThemeCard";
+import { theme } from "./ThemeColors";
 
 function Home() {
   const [isCreating, setIsCreating] = useState(false);
@@ -23,14 +25,24 @@ function Home() {
           direction="row"
           columnSpacing={0}
         >
-          {
-            isCreating ? 
+          {isCreating ? (
             <>
-              <Grid item xs={3}>Theme 1</Grid>
-              <Grid item xs={3}>Theme 2</Grid>
-              <Grid item xs={3}>Theme 3</Grid>
-              <Grid item xs={3}>Theme 4</Grid>
-              </> : <></>}
+              <Grid item xs={3}>
+                <ThemeCard color={theme.palette.cards.purple} />
+              </Grid>
+              <Grid item xs={3}>
+                <ThemeCard color={theme.palette.cards.yellow} />
+              </Grid>
+              <Grid item xs={3}>
+                <ThemeCard color={theme.palette.cards.green} />
+              </Grid>
+              <Grid item xs={3}>
+                <ThemeCard color={theme.palette.cards.blue} />
+              </Grid>
+            </>
+          ) : (
+            <></>
+          )}
           <Grid item xs={3}>
             <ConnectionCard create={isCreating} />
           </Grid>
